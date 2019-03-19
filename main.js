@@ -22,21 +22,47 @@ let basicallyCount = 0;
 
 const counter = () => {
   for (let i = 0; i < betterWords.length; i++){
-    for (let j = 0; j < overusedWords.length; j++){
-      if (betterWords[i] === overusedWords[0]){
-        reallyCount++;
-      } else if (betterWords[i] === overusedWords[1]){
-        veryCount++;
-      } else if (betterWords[i] === overusedWords[2]){
-        basicallyCount++;
-      }
+    if (overusedWords[0] === betterWords[i]){
+      reallyCount++;
+    } else if (overusedWords[1] === betterWords[i]){
+      veryCount++;
+    } else if (overusedWords[2] === betterWords[i]){
+      basicallyCount++;
     }
   }
 };
 counter();
-console.log(reallyCount);
-console.log(veryCount);
-console.log(basicallyCount);
+
+let sentenceCount = 0;
+
+const puncCheck = betterWords.filter(punc => {
+  if (punc.includes('.') || punc.includes('!')){
+    sentenceCount++;
+  }
+});
+
+const statLog = () => {
+  console.log(`Your document is ${betterWords.length} words long. It has ${sentenceCount} sentences. In this document you used the word 'really' ${reallyCount} times, the word 'very' ${veryCount} times, and the word 'basically' ${basicallyCount} times.`)
+};
+statLog();
+
+console.log(betterWords.join(' '));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

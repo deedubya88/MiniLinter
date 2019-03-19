@@ -46,7 +46,7 @@ const statLog = () => {
 };
 statLog();
 
-console.log(betterWords.join(' '));
+console.log(betterWords.join(' ')); 
 
 
 
